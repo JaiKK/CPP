@@ -7,14 +7,14 @@ void byVal(int x){
 }
 
 //This function will not create a copy of variable
-void byRef(int &x){
+void byRef(int& x){
     std::cout << "(byRef)value: " << x << std::endl;
     std::cout << "(byRef)value: " << *(int *)&x << std::endl; // you can think of type casting of pointers as well 
     std::cout << "(byRef)address: " << &x << std::endl;
 }
 
 //This function will not create a copy of variable
-void byPtr(int *x){
+void byPtr(int* x){
     std::cout << "(byPtr)value: " << x << std::endl;
     std::cout << "(byPtr)address: " << &x << std::endl;
     std::cout << "(byPtr)value of: " << *x << std::endl;    
@@ -22,15 +22,21 @@ void byPtr(int *x){
 }
 
 int retByVal(){
+
+    std::cout << "--------------------" << std::endl;
+
     int x = 5; //This will allocate stack memory
     std::cout << "(retByVal)value: " << x << std::endl;
     std::cout << "(retByVal)address: " << &x << std::endl;
-    return *(int*)&x;
+    return x;
+    // return *(int*)&x;
 }
 
 
 //This function will not create a copy of variable
 int* retByRef(){
+
+    std::cout << "--------------------" << std::endl;
 
     int* x = new int;
     *x = 5;
@@ -66,7 +72,12 @@ int main(){
     int x1 = retByVal();
     std::cout << "value of retByVal(): " << x1 << std::endl;
     
-    
+    int* x2 = retByRef();
+    std::cout << "value of retByRef(): " << x2 << std::endl;
+    std::cout << "address of retByRef(): " << &x2 << std::endl;
+    std::cout << "value of reference retByRef(): " << *x2 << std::endl;
+    std::cout << "value of reference retByRef(): " << *&x2 << std::endl;
+    delete x2;
 
     return 0;
 }
