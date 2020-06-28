@@ -15,6 +15,7 @@ Todo:
 
 ## smart_pointers:
 https://www.geeksforgeeks.org/smart-pointers-cpp/
+https://en.cppreference.com/book/intro/smart_pointers
 
 
 ## Reference:

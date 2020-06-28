@@ -18,8 +18,14 @@ class Rectangle{
 };
 
 int main(){
-    std::unique_ptr<Rectangle> P1( new Rectangle(10,5) );
     
+    // Safer way to create unique pointer is to use make_unique function for exception handling;
+    std::unique_ptr<Rectangle> SaferP1 = std::make_unique<Rectangle>(10,50);
+    std::cout << SaferP1->area() << std::endl;
+ 
+ 
+    std::unique_ptr<Rectangle> P1( new Rectangle(10,5) );
+
     // Below line will not work as unique pointer cannot be copied
     // std::unique_ptr<Rectangle> P2( P1 );
     
